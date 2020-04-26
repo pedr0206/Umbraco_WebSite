@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3706e53283f1451e")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ee2493d940180861")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -69,7 +69,7 @@ namespace Umbraco.Web.PublishedModels
 		public string Footer => this.Value<string>("footer");
 
 		///<summary>
-		/// Logo
+		/// Logo: Choose a Logo for the site
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("logo")]
@@ -83,7 +83,7 @@ namespace Umbraco.Web.PublishedModels
 		public global::System.Web.IHtmlString MainContent => this.Value<global::System.Web.IHtmlString>("mainContent");
 
 		///<summary>
-		/// Site Title
+		/// Site Title: Give a title for the site
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("siteTitle")]
@@ -213,14 +213,21 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Header
+		/// grid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		[ImplementPropertyType("grid")]
+		public global::Newtonsoft.Json.Linq.JToken Grid => this.Value<global::Newtonsoft.Json.Linq.JToken>("grid");
+
+		///<summary>
+		/// Header: Enter a header for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("header")]
 		public string Header => this.Value<string>("header");
 
 		///<summary>
-		/// Main content
+		/// Main content: Enter content for the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("mainContent")]
@@ -274,14 +281,14 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Article Content
+		/// Article Content: Enter a content for an article
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("articleContent")]
 		public global::System.Web.IHtmlString ArticleContent => this.Value<global::System.Web.IHtmlString>("articleContent");
 
 		///<summary>
-		/// Articles Title
+		/// Articles Title: Enter an article title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("articlesTitle")]
@@ -335,14 +342,14 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Articles Body Text
+		/// Articles Body Text: Enter text for the body of the article
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("articlesBodyText")]
 		public global::System.Web.IHtmlString ArticlesBodyText => this.Value<global::System.Web.IHtmlString>("articlesBodyText");
 
 		///<summary>
-		/// Articles Title
+		/// Articles Title: Enter a title for the article
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("articlesTitle")]
@@ -396,21 +403,21 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Project Description
+		/// Project Description: Enter a description for the project
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("projectDescription")]
 		public global::System.Web.IHtmlString ProjectDescription => this.Value<global::System.Web.IHtmlString>("projectDescription");
 
 		///<summary>
-		/// Project Status
+		/// Project Status: Give a status for the project
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("projectStatus")]
 		public string ProjectStatus => this.Value<string>("projectStatus");
 
 		///<summary>
-		/// Project Title
+		/// Project Title: Enter a title for a project
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("projectTitle")]
@@ -464,14 +471,14 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Projects Body Text
+		/// Projects Body Text: Enter text for the projects body
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("projectsBodyText")]
 		public global::System.Web.IHtmlString ProjectsBodyText => this.Value<global::System.Web.IHtmlString>("projectsBodyText");
 
 		///<summary>
-		/// Projects Title
+		/// Projects Title: Give a title for the projects
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("projectsTitle")]
@@ -497,6 +504,86 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
 		[ImplementPropertyType("umbracoNaviHide")]
 		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.Master.GetUmbracoNaviHide(this);
+	}
+
+	/// <summary>SiteMap</summary>
+	[PublishedModel("siteMap")]
+	public partial class SiteMap : PublishedContentModel, IMaster
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public new const string ModelTypeAlias = "siteMap";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SiteMap, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public SiteMap(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Meta Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		[ImplementPropertyType("metaDescription")]
+		public string MetaDescription => global::Umbraco.Web.PublishedModels.Master.GetMetaDescription(this);
+
+		///<summary>
+		/// Meta Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		[ImplementPropertyType("metaKeywords")]
+		public string MetaKeywords => global::Umbraco.Web.PublishedModels.Master.GetMetaKeywords(this);
+
+		///<summary>
+		/// Hide from navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.Master.GetUmbracoNaviHide(this);
+	}
+
+	/// <summary>About Us</summary>
+	[PublishedModel("aboutUs")]
+	public partial class AboutUs : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public new const string ModelTypeAlias = "aboutUs";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AboutUs, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public AboutUs(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Grid
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.5")]
+		[ImplementPropertyType("grid")]
+		public global::Newtonsoft.Json.Linq.JToken Grid => this.Value<global::Newtonsoft.Json.Linq.JToken>("grid");
 	}
 
 	/// <summary>Folder</summary>

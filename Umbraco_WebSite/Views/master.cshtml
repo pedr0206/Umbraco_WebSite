@@ -3,11 +3,6 @@
 	Layout = null;
 }
 
-@* the fun starts here *@
-
-<!DOCTYPE HTML>
-
-
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,55 +13,56 @@
 
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/assets/css/style.css" />
+    <link rel="stylesheet" href="~/assets/css/clean-blog.css" />
+    <link rel="stylesheet" href="~/assets/css/clean-blog.min.css" />
+    <script src="~/assets/js/clean-blog.js"></script>
+    <script src="~/assets/js/clean-blog.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Karla:700|Open+Sans:400,600|Montserrat|Raleway:300,400|Roboto:400,700&display=swap" rel="stylesheet">
 
     <title>Aarhus Web Dev Co-op</title>
 </head>
 
 <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Menu</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-end">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
-      </li>
-            <li class="nav-item">
-        <a class="nav-link" href="#">News</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Our Projects
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            @Html.Partial("_mainMenu")
         </div>
-      </li>
-            <li class="nav-item">
-        <a class="nav-link" href="#">Members</a>
-      </li>
-            <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-            <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
+    </nav>
 
-  </div>
-</nav>
 
-    @RenderBody()
 
+
+    <div class="min-height">@RenderBody()</div>
+    
+
+  <footer class="card-footer py-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-10 order-lg-0 order-md-0 order-12">
+                    <p class="footer-logo">&#60;Aarhus Web Developers Corporation /&#62;</p>
+                    <p class="footer-copyright"><i class="fas fa-copyright"></i> 2020 All Rights Reserved</p>
+                </div>
+
+                <div class="col-lg-2 footer-contact">
+                    <p>customer-support@aarhusdev.dk</p>
+                    <p>+4 8 15 16 23 42</p>
+                    <p>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
