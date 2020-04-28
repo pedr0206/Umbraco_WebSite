@@ -2652,6 +2652,7 @@
     <Content Include="Views\Partials\_mainMenu.cshtml" />
     <Content Include="Views\Partials\_siteMap.cshtml" />
     <Content Include="Views\Partials\MacroPartials\listNewestProjects.cshtml" />
+    <Content Include="Views\AboutUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

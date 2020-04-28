@@ -15,13 +15,52 @@
 
 @if (selection.Length > 0)
 {
+    <ul class="navbar-nav">
+        <li class="@(Model.Name == root.Name ? "active" : null) nav-item">
+            <a href="@root.Url" class="nav-link">@root.Name</a>
+        </li>
 
-    <ul>
         @foreach (var item in selection)
         {
-            <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                <a href="@item.Url">@item.Name</a>
-            </li>
+            if (Umbraco.MemberHasAccess(item.Path))
+            {
+                if (item.Children().Count() > 0)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @item.Name
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (var subMenuItem in item.Children().Where(x => x.IsVisible()))
+                            {
+                                if (Umbraco.MemberHasAccess(subMenuItem.Path))
+                                {
+                                    if (subMenuItem.IsDocumentType("projectItem"))
+                                    {
+                                        if (subMenuItem.GetProperty("projectStatus").Value<string>() == "Completed")
+                                        {
+                                            <a class="dropdown-item" href="@subMenuItem.Url"> @subMenuItem.Name </a>
+                                        }
+
+                                    }
+
+                                    else
+                                    {
+                                        <a class="dropdown-item" href="@subMenuItem.Url"> @subMenuItem.Name </a>
+                                    }
+                                }
+
+                            }
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="@(item.IsAncestorOrSelf(Model) ? "active" : null) nav-item">
+                        <a href="@item.Url" class="nav-link">@item.Name</a>
+                    </li>
+                }
+            }
         }
     </ul>
 }
